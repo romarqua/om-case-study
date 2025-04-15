@@ -24,12 +24,16 @@ jobs:
 
       - name: Terraform Init
         run: terraform init
-
+        working-directory: ./infrastructure-as-code
+         
       - name: Terraform Validate
         run: terraform validate
+        working-directory: ./infrastructure-as-code
 
       - name: Terraform Plan
         run: terraform plan -out=tfplan.binary
+        working-directory: ./infrastructure-as-code
 
       - name: Terraform Show
         run: terraform show -no-color tfplan.binary
+        working-directory: ./infrastructure-as-code
